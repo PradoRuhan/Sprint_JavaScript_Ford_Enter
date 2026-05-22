@@ -13,10 +13,14 @@ html {
 div#carousel {
     height: 46vh;
     width: 100%;
+    text-align: center;
      max-height: 628px;
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
+}
+#carousel img{
+    width: 70%;
 }
 
 div#carousel-title a {
