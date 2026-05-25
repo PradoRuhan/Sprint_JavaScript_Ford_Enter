@@ -9,17 +9,19 @@
     padding: 5px;
 }
 
+textarea.fordform {
+    height: 80px;
+    resize: none;
+    font-family: inherit;
+}
+
 select.fordform {
     width: 310px;
     height: 36px;
     color: #807d7d;
 }
 
-input:focus-visible {
-    outline: none;
-}
-
-select:focus-visible {
+input:focus-visible, select:focus-visible, textarea:focus-visible {
     outline: none;
 }
 
@@ -47,6 +49,18 @@ button {
     height: 40px;
     margin-right: 8px;
     float: right;
+    background-color: #003478;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #001c44;
+    transform: scale(1.08);
 }
 
 .titulo {

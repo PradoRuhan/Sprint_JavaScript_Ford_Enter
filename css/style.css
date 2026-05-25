@@ -20,7 +20,7 @@ div#carousel {
     transition: all .3s ease-in-out;
 }
 #carousel img{
-    width: 70%;
+    width: 50%;
 }
 
 div#carousel-title a {
@@ -121,4 +121,19 @@ button {
     color: #fff;
     border: 0px;
     border-radius: 10px;
+}
+
+.btn-carousel {
+    display: block;
+    margin: 15px auto;
+    padding: 10px 25px;
+    font-size: 15px;
+    font-weight: bold;
+    float: none;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-carousel:hover {
+    transform: scale(1.05);
 }
