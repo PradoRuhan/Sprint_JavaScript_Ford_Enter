@@ -13,13 +13,23 @@ class Carousel {
     }
       
     static Start(arr){
-        if(arr&&arr.length > 0){
+        if(arr && arr.length > 0){
             Carousel._arr = arr;
             Carousel._index = 0;
-            Carousel.Next(); //start
-            Carousel._ResetInterval();
-            Carousel.CreateButtons();
+            if (document.readyState === "loading") {
+                document.addEventListener("DOMContentLoaded", function() {
+                    Carousel.Init(); 
+                });
+            } else {
+                Carousel.Init();
+            }
         }
+    }
+
+    static Init(){
+        Carousel.Next(); //start
+        Carousel._ResetInterval();
+        Carousel.CreateButtons();
     }
 
     static ResetInterval(){
@@ -42,6 +52,7 @@ class Carousel {
             btn.id = "btn-next-carousel";
             btn.innerText = "Próximo >";
             btn.className = "btn-carousel";
+            
             btn.onclick = function(){
                 Carousel.ManualNext();
             };
@@ -55,11 +66,12 @@ class Carousel {
     static Next(){
         const carouselDiv = document.getElementById("carousel");
         const textoDiv = document.getElementById("carousel-title");
+        
         const atual = Carousel._arr[Carousel._index];
 
         if (carouselDiv && textoDiv && atual){
-            carouselDiv.innerHTML = `<img src="img/${atual.imagem}">`;
-            textoDiv.innerHTML = `<a href="${atual.link}">${atual.texto}</a>`;
+            carouselDiv.innerHTML = '<img src="img/' + atual.imagem + '">';
+            textoDiv.innerHTML = '<a href="' + atual.link + '">' + atual.texto + '</a>';
         }
 
         Carousel._index = (Carousel._index+1) % Carousel._arr.length;
