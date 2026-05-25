@@ -13,23 +13,13 @@ class Carousel {
     }
       
     static Start(arr){
-        if(arr && arr.length > 0){
+        if (arr && arr.length > 0){
             Carousel._arr = arr;
             Carousel._index = 0;
-            if (document.readyState === "loading") {
-                document.addEventListener("DOMContentLoaded", function() {
-                    Carousel.Init(); 
-                });
-            } else {
-                Carousel.Init();
-            }
+            Carousel.Next();
+            Carousel.ResetInterval();
+            Carousel.CreateButton();
         }
-    }
-
-    static Init(){
-        Carousel.Next(); //start
-        Carousel._ResetInterval();
-        Carousel.CreateButtons();
     }
 
     static ResetInterval(){
@@ -38,12 +28,12 @@ class Carousel {
         }
         Carousel._interval = setInterval(function(){
             Carousel.Next();
-        }, 3000);
+        }, 5000);
     }
 
     static ManualNext(){
         Carousel.Next();
-        Carousel._ResetInterval();
+        Carousel.ResetInterval();
     }
 
     static CreateButton(){
@@ -52,13 +42,19 @@ class Carousel {
             btn.id = "btn-next-carousel";
             btn.innerText = "Próximo >";
             btn.className = "btn-carousel";
+
+            btn.style.display = "block";
+            btn.style.margin = "15px auto";
+            btn.style.padding = "10px 20px";
+            btn.style.cursor = "pointer";
             
             btn.onclick = function(){
                 Carousel.ManualNext();
             };
             const textoDiv = document.getElementById("carousel-title");
             if (textoDiv){
-                textoDiv.after(btn);
+
+                textoDiv.parentNode.insertBefore(btn, textoDiv.nextSibling);
             }
         }
     }
@@ -67,6 +63,7 @@ class Carousel {
         const carouselDiv = document.getElementById("carousel");
         const textoDiv = document.getElementById("carousel-title");
         
+        if (!Carousel._arr || Carousel._arr.length === 0 ) return;
         const atual = Carousel._arr[Carousel._index];
 
         if (carouselDiv && textoDiv && atual){
@@ -74,6 +71,6 @@ class Carousel {
             textoDiv.innerHTML = '<a href="' + atual.link + '">' + atual.texto + '</a>';
         }
 
-        Carousel._index = (Carousel._index+1) % Carousel._arr.length;
+        Carousel._index = (Carousel._index + 1) % Carousel._arr.length;
     }
 };

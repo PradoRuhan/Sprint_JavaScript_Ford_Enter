@@ -32,7 +32,7 @@ function SetCarToCompare(el, carClass) {
    
     if(carClass instanceof Car){       
         if(el.checked){
-            if(carArr.length >=2){
+            if(carArr.length >= 2){
                 alert("Você só pode selecionar até 02 carros para comparação simultânea.");
                 el.checked = false;
                 return;
@@ -68,35 +68,35 @@ function HideCompare(){
 }
 
 function UpdateCompareTable() {
-    for(let i = 0 < 2; i++){
+    for(let i = 0; i < 2; i++){
         let car = carArr[i];
 
         if(car){
-           document.getElementById("compare_image_${i}").innerHTML = '<img src="${car.image} style="width: 120px; max-width: 100%; border-radius: 5px;">'; 
-           document.getElementById("compare_modelo_${i}").innerText = car.nome;
-           document.getElementById("compare_alturacacamba_${i}").innerText = car.alturaCacamba;
-           document.getElementById("compare_alturaveiculo_${i}").innerText = car.alturaVeiculo;
-           document.getElementById("compare_alturasolo_${i}").innerText = car.alturaSolo;
-           document.getElementById("compare_capacidadecarga_${i}").innerText = car.capacidadeCarga + " Kg"; 
-           document.getElementById("compare_motor_${i}").innerText = car.motor;
-           document.getElementById("compare_potencia_${i}").innerText = car.potencia + " cv";
-           document.getElementById("compare_volumecacamba_${i}").innerText = car.volumecacamba + " L";
-           document.getElementById("compare_roda_${i}").innerText = car.roda;
+           document.getElementById("compare_image_" + i).innerHTML = '<img src="' + car.image + '" style="width: 120px; max-width: 100%; border-radius: 5px;">'; 
+           document.getElementById("compare_modelo_" + i).innerText = car.nome;
+           document.getElementById("compare_alturacacamba_" + i).innerText = car.alturaCacamba;
+           document.getElementById("compare_alturaveiculo_" + i).innerText = car.alturaVeiculo;
+           document.getElementById("compare_alturasolo_" + i).innerText = car.alturaSolo;
+           document.getElementById("compare_capacidadecarga_" + i).innerText = car.capacidadeCarga + " Kg"; 
+           document.getElementById("compare_motor_" + i).innerText = car.motor;
+           document.getElementById("compare_potencia_" + i).innerText = car.potencia + " cv";
+           document.getElementById("compare_volumecacamba_" + i).innerText = car.volumeCacamba + " L";
+           document.getElementById("compare_roda_" + i).innerText = car.roda;
 
-           document.getElementById("compare_preco_${i}").innerText = "R$ " + car.preco.toLocaleString(`pt-BR`);
+           document.getElementById("compare_preco_" + i).innerText = "R$ " + car.preco.toLocaleString('pt-BR');
 
 
         } else {
-           document.getElementById("compare_image_${i}").innerHTML = ""; 
-           document.getElementById("compare_modelo_${i}").innerText = "";
-           document.getElementById("compare_alturacacamba_${i}").innerText = "";
-           document.getElementById("compare_alturaveiculo_${i}").innerText = "";
-           document.getElementById("compare_alturasolo_${i}").innerText = "";
-           document.getElementById("compare_capacidadecarga_${i}").innerText = ""; 
-           document.getElementById("compare_motor_${i}").innerText = "";
-           document.getElementById("compare_potencia_${i}").innerText = "";
-           document.getElementById("compare_volumecacamba_${i}").innerText = "";
-           document.getElementById("compare_roda_${i}").innerText = ""; 
+           document.getElementById("compare_image_" + i).innerHTML = ""; 
+           document.getElementById("compare_modelo_" + i).innerText = "";
+           document.getElementById("compare_alturacacamba_" + i).innerText = "";
+           document.getElementById("compare_alturaveiculo_" + i).innerText = "";
+           document.getElementById("compare_alturasolo_" + i).innerText = "";
+           document.getElementById("compare_capacidadecarga_" + i).innerText = ""; 
+           document.getElementById("compare_motor_" + i).innerText = "";
+           document.getElementById("compare_potencia_" + i).innerText = "";
+           document.getElementById("compare_volumecacamba_" + i).innerText = "";
+           document.getElementById("compare_roda_" + i  ).innerText = ""; 
         }
     }  
 }
