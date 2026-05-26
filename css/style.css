@@ -14,13 +14,10 @@ div#carousel {
     height: 46vh;
     width: 100%;
     text-align: center;
-     max-height: 628px;
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
-}
-#carousel img{
-    width: 50%;
+    max-height: 628px;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
 }
 
 div#carousel-title a {
@@ -43,7 +40,7 @@ header ul {
 }
 
 ul {
-	display: inline-block;
+    display: inline-block;
 }
 
 header {
@@ -116,6 +113,7 @@ footer div {
 button:hover {
     background: #1b357e;
 }
+
 button {
     background: #1351d8;
     color: #fff;
@@ -123,17 +121,12 @@ button {
     border-radius: 10px;
 }
 
-.btn-carousel {
-    display: block;
-    margin: 15px auto;
-    padding: 10px 25px;
-    font-size: 15px;
-    font-weight: bold;
-    float: none;
-    cursor: pointer;
-    transition: background 0.2s ease, transform 0.2s ease;
+.carousel-img-link:hover {
+    transform: scale(1.02);
 }
 
-.btn-carousel:hover {
-    transform: scale(1.05);
+@media (max-width: 768px) {
+    .carousel-img-link {
+        width: 75% !important;
+    }
 }
