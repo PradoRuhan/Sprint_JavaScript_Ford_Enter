@@ -29,6 +29,9 @@ form.reset();
 
 function Enviar(dadosInstanciados) {
     if (dadosInstanciados.nome !== "") {
+        console.log("Dados armazenados com sucesso.");
+        console.log(dadosInstanciados);
+                
         alert('Obrigado sr(a) ' + dadosInstanciados.nome + ' os seus dados foram encaminhados com sucesso');
     }
 
